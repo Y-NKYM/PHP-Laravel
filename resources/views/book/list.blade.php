@@ -1,10 +1,16 @@
 @extends('layout')
 <h1>Hello</h1>
 <a class="btn btn-primary" href="{{ route('book.new') }}">新規登録</a>
-<h2>{{ $onebook->title }}</h2>
 <div>
     @foreach($books as $book)
-        <p>Title: {{ $book->title }} has content {{ $book->content }}</p>
+        <p>Title: {{ $book->title }} has content {{ $book->content }}
+            <a class="btn btn-primary" href="{{ route('book.edit', $book->id) }}">編集</a>
+            <form action="{{ route('book.destroy', $book->id) }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-danger" onclick='return confirm("削除しますか")'>削除</button>
+            </form>
+        </p>
     @endforeach
 </div>
 @section('content')

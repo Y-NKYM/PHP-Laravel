@@ -18,6 +18,9 @@ use App\Http\Controllers\BookController;
 Route::get('/', [BookController::class, 'index'])->name('book.index');
 Route::get('/new', [BookController::class, 'new'])->name('book.new');
 Route::post('/create', [BookController::class, 'create'])->name('book.create');
+Route::get('/{book}/edit', [BookController::class, 'edit'])->name('book.edit');
+Route::patch('/{book}', [BookController::class, 'update'])->name('book.update');
+Route::delete('/{book}', [BookController::class, 'destroy'])->name('book.destroy');
 //Route::get('/', 'BookController@index') -> name('boo');
 
 // Route::get('/', function () {
