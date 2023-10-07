@@ -15,7 +15,8 @@ class BooksTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        //直接の場合
+        /*
         \DB::table('books')->insert([
             [
                 "title"=>'テストタイトル',
@@ -30,5 +31,9 @@ class BooksTableSeeder extends Seeder
                 "content"=>'テストコンテンツ3',
             ],
         ]);
+        */
+        
+        //Factoryを使用する場合
+        Book::factory()->count(10)->create();
     }
 }

@@ -82,7 +82,8 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'ja',
+    // 'locale' => 'en',
 
     /*
     |--------------------------------------------------------------------------
@@ -94,8 +95,9 @@ return [
     | the language folders that are provided through your application.
     |
     */
-
-    'fallback_locale' => 'en',
+    
+    'fallback_locale' => 'ja',
+    // 'fallback_locale' => 'en',
 
     /*
     |--------------------------------------------------------------------------
@@ -109,6 +111,7 @@ return [
     */
 
     'faker_locale' => 'ja_JP',
+    // 'faker_locale' => 'en_US',
 
     /*
     |--------------------------------------------------------------------------

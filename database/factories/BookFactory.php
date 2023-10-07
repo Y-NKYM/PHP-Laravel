@@ -2,7 +2,6 @@
 
 namespace Database\Factories;
 
-use App\Models\Book;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 
@@ -19,7 +18,10 @@ class BookFactory extends Factory
     public function definition()
     {
         return [
-            //
+            //Fakerを使用
+            'title' => $this->faker->realText(10),
+            'content' => $this->faker->realText(50),
+            'created_at' => date('Y-m-d H:i:s'),
         ];
     }
 }
