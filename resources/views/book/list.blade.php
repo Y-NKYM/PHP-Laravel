@@ -1,5 +1,9 @@
 @extends('layout')
 <h1>Hello</h1>
+<h2>{{ $value }}</h2>
+<h3>{{ $arr[0] }}</h3>
+<h4>{{ $arr[1] }}</h4>
+<h5>{{ $arr[2] }}</h5>
 @section('content')
 <div class="row">
     <div class="col-md-8 col-md-offset-2">
