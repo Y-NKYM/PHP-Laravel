@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Book;
 
 class BookController extends Controller
 {
@@ -12,9 +13,9 @@ class BookController extends Controller
      * @return view
      */
     public function index(){
-        $value = 'Snome';
-        $arr = ['Snome1', 'Snome2', 'Snome3'];
+        $onebook = Book::find(1);
+        $books = Book::all();
         // resources < views < book(作成する必要あり) の中の情報を読み込む
-        return view('book.list', compact('value', 'arr'));
+        return view('book.list', compact('onebook', 'books'));
     }
 }
