@@ -1,5 +1,6 @@
 @extends('layout')
 <h1>Hello</h1>
+<a class="btn btn-primary" href="{{ route('book.new') }}">新規登録</a>
 <h2>{{ $onebook->title }}</h2>
 <div>
     @foreach($books as $book)

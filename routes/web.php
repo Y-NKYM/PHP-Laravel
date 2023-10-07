@@ -15,7 +15,9 @@ use App\Http\Controllers\BookController;
 */
 
 //ブック一覧画面を表示
-Route::get('/', [BookController::class, 'index']);
+Route::get('/', [BookController::class, 'index'])->name('book.index');
+Route::get('/new', [BookController::class, 'new'])->name('book.new');
+Route::post('/create', [BookController::class, 'create'])->name('book.create');
 //Route::get('/', 'BookController@index') -> name('boo');
 
 // Route::get('/', function () {
