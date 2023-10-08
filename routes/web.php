@@ -15,17 +15,17 @@ use App\Http\Controllers\BookController;
 */
 
 //ブック一覧画面を表示
-Route::get('/', [BookController::class, 'index'])->name('book.index');
-Route::get('/new', [BookController::class, 'new'])->name('book.new');
-Route::post('/create', [BookController::class, 'create'])->name('book.create');
-Route::get('/{book}/edit', [BookController::class, 'edit'])->name('book.edit');
-Route::patch('/{book}', [BookController::class, 'update'])->name('book.update');
-Route::delete('/{book}', [BookController::class, 'destroy'])->name('book.destroy');
+Route::get('/book', [BookController::class, 'index'])->name('book.index');
+Route::get('/new', [BookController::class, 'new'])->name('book.new')->middleware('auth');
+Route::post('/create', [BookController::class, 'create'])->name('book.create')->middleware('auth');
+Route::get('/{book}/edit', [BookController::class, 'edit'])->name('book.edit')->middleware('auth');
+Route::patch('/{book}', [BookController::class, 'update'])->name('book.update')->middleware('auth');
+Route::delete('/{book}', [BookController::class, 'destroy'])->name('book.destroy')->middleware('auth');
 //Route::get('/', 'BookController@index') -> name('boo');
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 
 Auth::routes();
 
