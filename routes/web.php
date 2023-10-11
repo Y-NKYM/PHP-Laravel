@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\ImageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,9 @@ Route::get('/{book}/edit', [BookController::class, 'edit'])->name('book.edit')->
 Route::patch('/{book}', [BookController::class, 'update'])->name('book.update')->middleware('auth');
 Route::delete('/{book}', [BookController::class, 'destroy'])->name('book.destroy')->middleware('auth');
 //Route::get('/', 'BookController@index') -> name('boo');
+
+Route::get('/image', [ImageController::class, 'index'])->name('image.index');
+Route::post('/image', [ImageController::class, 'store'])->name('image.store');
 
 Route::get('/', function () {
     return view('welcome');
