@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\ImageController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Admin\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +16,15 @@ use App\Http\Controllers\ImageController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+//管理者ルート
+Route::prefix('admin')->group(function () {
+  Route::get('/login', [LoginController::class, 'index'])->name('admin.login.index');
+  Route::post('/login', [LoginController::class, 'login'])->name('admin.login');
+  Route::get('/logout', [LoginController::class, 'logout'])->name('admin.login.logout');
+  
+  Route::get('/', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+});
 
 //ブック一覧画面を表示
 Route::get('/book', [BookController::class, 'index'])->name('book.index');
@@ -35,6 +46,6 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
+// Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -26,6 +26,9 @@ class AppServiceProvider extends ServiceProvider
     public function boot(UrlGenerator $url) //  引数追加
     {
         $url->forceScheme('https'); //  追加
+        if (request()->is('admin/*')) {
+            config(['session.cookie' => config('session.cookie_admin')]);
+        }
     }
     
     
