@@ -26,4 +26,12 @@
         </div>
     </div>
 </div>
+@if (session('login_msg'))
+  <p>{{ session('login_msg') }}</p>
+@endif
+
+@if (Auth::guard('admins')->check())
+  <div>ユーザーID {{ Auth::guard('admins')->user()->email }}でログイン中</div>
+@endif
+<a href="/admin/logout">ログアウト</a>
 @endsection

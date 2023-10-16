@@ -1,7 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-{{Auth::user();}}
+@error('login')
+    <p>{{ $message }}</p>
+@enderror
+@foreach ($errors->all() as $error)
+    <p>{{ $error }}</p>
+@endforeach
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">

@@ -31,13 +31,14 @@ class LoginController extends Controller
         }
 
         return back()->withErrors([
-            'login' => ['ログインに失敗しました'],
+            'login' => 'ログインに失敗しました',
         ]);
   }
 
   //ログアウト処理
   public function logout(Request $request)
   {
+    
     Auth::guard('admins')->logout();
     $request->session()->regenerateToken();
 

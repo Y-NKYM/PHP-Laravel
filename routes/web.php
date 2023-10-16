@@ -23,7 +23,7 @@ Route::prefix('admin')->group(function () {
   Route::post('/login', [LoginController::class, 'login'])->name('admin.login');
   Route::get('/logout', [LoginController::class, 'logout'])->name('admin.login.logout');
   
-  Route::get('/', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+  Route::get('/', [AdminController::class, 'dashboard'])->name('admin.dashboard')->middleware('admin.auth');
 });
 
 //ブック一覧画面を表示
